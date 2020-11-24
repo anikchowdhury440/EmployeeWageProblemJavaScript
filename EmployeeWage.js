@@ -10,8 +10,7 @@ let monthlyWage = 0;
 let totalWorkingDays = 0;
 let totalWorkingHrs = 0;
 
-while(totalWorkingHrs < maxWorkingHrs && totalWorkingDays < maxWorkingDays) { 
-    totalWorkingDays ++;
+const getWorkHrs = () => {
     let empCheck = Math.floor(Math.random() * 10) % 3;
 
     switch(empCheck) {
@@ -24,6 +23,13 @@ while(totalWorkingHrs < maxWorkingHrs && totalWorkingDays < maxWorkingDays) {
         default :
             empHrs = 0;
     }
+
+    return empHrs;
+}
+
+while(totalWorkingHrs < maxWorkingHrs && totalWorkingDays < maxWorkingDays) { 
+    totalWorkingDays ++;
+    empHrs = getWorkHrs();
     totalWorkingHrs += empHrs;
 }
 
