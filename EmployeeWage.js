@@ -10,7 +10,7 @@ let monthlyWage = 0;
 let totalWorkingDays = 0;
 let totalWorkingHrs = 0;
 
-let empDailyWage = new Array();
+let empDailyWage = new Map();
 
 const getWorkHrs = empCheck => {
 
@@ -34,15 +34,15 @@ while(totalWorkingHrs < maxWorkingHrs && totalWorkingDays < maxWorkingDays) {
     totalWorkingDays ++;
     let empCheck = Math.floor(Math.random() * 10) % 3;
     empHrs = getWorkHrs(empCheck);
-    empDailyWage.push(calculateWage(empHrs));
+    empDailyWage.set(totalWorkingDays, calculateWage(empHrs));
     totalWorkingHrs += empHrs;
 }
 
 monthlyWage = calculateWage(totalWorkingHrs);
 
 console.log("Daily Wage List");
-for(let day = 0; day < empDailyWage.length; day++) {
-    console.log("Day", day + 1, ":", empDailyWage[day])
-}
+empDailyWage.forEach((value, key) => {
+    console.log("Day", key, ":", value);
+});
 
 console.log("Employee Monthly Wage:", monthlyWage);
