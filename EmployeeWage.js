@@ -6,12 +6,16 @@ let empHrs = 0, empWage;
 
 let empCheck = Math.floor(Math.random() * 10) % 3;
 
-if(empCheck == isFullTime) 
-    empHrs = 8;
-else if(empCheck == isPartTime)
-    empHrs = 4;
-else
-    empHrs = 0;
+switch(empCheck) {
+    case isFullTime:
+        empHrs = 8;
+        break;
+    case isPartTime:
+        empHrs = 4;
+        break;
+    default :
+        empHrs = 0;
+}
 
 empWage = empHrs * wagePerHour;
 
