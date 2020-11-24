@@ -10,8 +10,7 @@ let monthlyWage = 0;
 let totalWorkingDays = 0;
 let totalWorkingHrs = 0;
 
-const getWorkHrs = () => {
-    let empCheck = Math.floor(Math.random() * 10) % 3;
+const getWorkHrs = empCheck => {
 
     switch(empCheck) {
         case isFullTime:
@@ -29,7 +28,8 @@ const getWorkHrs = () => {
 
 while(totalWorkingHrs < maxWorkingHrs && totalWorkingDays < maxWorkingDays) { 
     totalWorkingDays ++;
-    empHrs = getWorkHrs();
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs = getWorkHrs(empCheck);
     totalWorkingHrs += empHrs;
 }
 
